@@ -92,8 +92,10 @@ class fileNames:
             elif unipath.isdir(realfilePath):
                 self.zipUpDir(myzip, tdir, localfilePath)
 
-    def makeEPUB(self, usedmap, obfuscate_data, uid):
-        bname = os.path.join(self.k8dir, self.getInputFileBasename() + '.epub')
+    def makeEPUB(self, usedmap, obfuscate_data, uid, bname=None):
+        # TODO in generate to in-memory ZipFile
+        # TODO update other code so that writes to to in-memory ZipFile and skip need for .zipUpDir()
+        bname = bname or os.environ.get('KINDLE_UNPACK_EPUB_FILENAME') or os.path.join(self.k8dir, self.getInputFileBasename() + '.epub')
         # Create an encryption key for Adobe font obfuscation
         # based on the epub's uid
         if isinstance(uid,text_type):
@@ -165,3 +167,4 @@ xmlns:enc="http://www.w3.org/2001/04/xmlenc#" xmlns:deenc="http://ns.adobe.com/d
         self.zipUpDir(self.outzip,self.k8dir,'META-INF')
         self.zipUpDir(self.outzip,self.k8dir,'OEBPS')
         self.outzip.close()
+        return bname  # generated filename on disk of epub

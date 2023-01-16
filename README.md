@@ -1,6 +1,26 @@
 KindleUnpack
 ============
 
+
+-------------------
+
+https://github.com/clach04/KindleUnpack is a fork of [KindleUnpack](https://github.com/kevinhendricks/KindleUnpack) which make it easier to import as a python library. If you only need to support Python 3.7+ consider https://github.com/iscc/mobi instead which is available via [PyPi](https://pypi.org/project/mobi/) for easy unpacking of mobi files. Also see archlinux package https://aur.archlinux.org/packages/kindleunpack
+
+This project exists because:
+
+  * KindleUnpack still supports older Python 3.x versions as well as later 2.x versions
+  * Installing the mobi library brings in other dependencies which may require a C compiler
+
+Example usage:
+
+    import KindleUnpack.lib.kindleunpack
+
+    unpack_book = KindleUnpack.lib.kindleunpack.unpackBook  # fake out a pep8 naming comvention
+    os.environ['KINDLE_UNPACK_EPUB_FILENAME'] = '/tmp/delme.epub'  # hack to specify output epub file name
+    unpack_book('test_file.azw3', 'tmp_out_directory')
+
+-------------------
+
 python based software to unpack Amazon / Kindlegen generated ebooks
 
 KindleUnpack unpacks a non-DRM Kindle/MobiPocket ebook into its component parts 

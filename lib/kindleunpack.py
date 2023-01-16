@@ -615,7 +615,8 @@ def processMobi8(mh, metadata, sect, files, rscnames, pagemapproc, k8resc, obfus
 
     # make an epub-like structure of it all
     print("Creating an epub-like file")
-    files.makeEPUB(usedmap, obfuscate_data, uuid)
+    generated_epub_filename = files.makeEPUB(usedmap, obfuscate_data, uuid)
+    print("Created epub-like %r" % generated_epub_filename)
 
 
 def processMobi7(mh, metadata, sect, files, rscnames):
