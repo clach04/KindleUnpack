@@ -13,7 +13,7 @@ This project exists because:
 
 Quick install via pip:
 
-    python -m pip install https://github.com/clach04/KindleUnpack.git
+    python -m pip install git+https://github.com/clach04/KindleUnpack.git
 
 Example usage:
 
