@@ -11,6 +11,10 @@ This project exists because:
   * KindleUnpack still supports older Python 3.x versions as well as later 2.x versions
   * Installing the mobi library brings in other dependencies which may require a C compiler
 
+Quick install via pip:
+
+    python -m pip install https://github.com/clach04/KindleUnpack.git
+
 Example usage:
 
     import KindleUnpack.lib.kindleunpack
@@ -18,6 +22,12 @@ Example usage:
     unpack_book = KindleUnpack.lib.kindleunpack.unpackBook  # fake out a pep8 naming comvention
     os.environ['KINDLE_UNPACK_EPUB_FILENAME'] = '/tmp/delme.epub'  # hack to specify output epub file name
     unpack_book('test_file.azw3', 'tmp_out_directory')
+
+Quick install and hacking notes for dev purposes:
+
+    git clone https://github.com/clach04/KindleUnpack.git
+    cd KindleUnpack
+    python -m pip install -e .
 
 -------------------
 
